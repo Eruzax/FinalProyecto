@@ -1,19 +1,11 @@
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import java.awt.BorderLayout;
-import java.awt.Image;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -22,24 +14,25 @@ import java.net.URL;
 
 public class GUI implements ActionListener
 {
-    private JTextArea loading;
     private Networking client;
     private JButton catButton;
     private JButton duckButton;
     private JButton foxButton;
     private JButton dogButton;
     private JFrame frame;
+    private Sound sound;
+    private JCheckBox soundsCheck;
 
     public GUI()
     {
-
-        frame = new JFrame("Animal App!");
-        loading = new JTextArea(3, 20);
+        frame = new JFrame("Animal App");
+        sound = new Sound();
         client = new Networking(); // our "networking client"
         catButton = new JButton("Cat");
         duckButton = new JButton("Duck");
         foxButton = new JButton("Fox");
         dogButton = new JButton("Dog");
+        soundsCheck = new JCheckBox("Sounds");
         setupGui();
     }
 
@@ -54,7 +47,7 @@ public class GUI implements ActionListener
         int g = (int) (Math.random() * 256);
         int b = (int) (Math.random() * 256);
 
-        JLabel welcomeLabel = new JLabel("   Animals!");
+        JLabel welcomeLabel = new JLabel("Animals!");
         welcomeLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         welcomeLabel.setForeground(new Color(r, g, b));
 
@@ -62,24 +55,22 @@ public class GUI implements ActionListener
         logoWelcomePanel.add(welcomeLabel);
         logoWelcomePanel.setVisible(true);
 
-        // middle panel with weather list
-        loading.setText("Animal loading...");
-        loading.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        loading.setWrapStyleWord(true);
-        loading.setLineWrap(true);
 
         //bottom panel with text field and buttons
         JPanel entryPanel = new JPanel(); // the panel is not visible in output
+        JPanel checkBoxPanel = new JPanel();
         entryPanel.add(catButton);
         entryPanel.add(dogButton);
         entryPanel.add(duckButton);
         entryPanel.add(foxButton);
+        checkBoxPanel.add(soundsCheck);
 
 
 
         //Adding Components to the frame
         frame.add(logoWelcomePanel, BorderLayout.NORTH);
-        frame.add(entryPanel, BorderLayout.SOUTH);
+        frame.add(entryPanel);
+        frame.add(checkBoxPanel, BorderLayout.AFTER_LAST_LINE);
 
         // PART 2 -- SET UP EVENT HANDLING
         //setting up buttons to use ActionListener interface and actionPerformed method
@@ -108,6 +99,10 @@ public class GUI implements ActionListener
                 woo.add(animalPic);
                 woo.pack();
                 woo.setVisible(true);
+                if(soundsCheck.isSelected())
+                {
+                    sound.playSound("src\\cat.mp3");
+                }
 
             }
             catch(Exception l)
@@ -129,6 +124,10 @@ public class GUI implements ActionListener
                 woo.add(animalPic);
                 woo.pack();
                 woo.setVisible(true);
+                if(soundsCheck.isSelected())
+                {
+                    sound.playSound("src\\dog.mp3");
+                }
             }
             catch(Exception l)
             {
@@ -148,6 +147,10 @@ public class GUI implements ActionListener
                 woo.add(animalPic);
                 woo.pack();
                 woo.setVisible(true);
+                if(soundsCheck.isSelected())
+                {
+                    sound.playSound("src\\duck.mp3");
+                }
             }
             catch(Exception l)
             {
@@ -167,6 +170,10 @@ public class GUI implements ActionListener
                 woo.add(animalPic);
                 woo.pack();
                 woo.setVisible(true);
+                if(soundsCheck.isSelected())
+                {
+                    sound.playSound("src\\fox.mp3");
+                }
             }
             catch(Exception l)
             {

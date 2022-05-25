@@ -3,7 +3,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,26 +31,28 @@ public class Networking
 
     public String parseDuck(String json)
     {
-        JSONObject o = new JSONObject(json);
-        return o.getString("url");
+        JSONObject woo = new JSONObject(json);
+        return woo.getString("url");
     }
 
     public String parseFox(String json)
     {
-        JSONObject o = new JSONObject(json);
-        return o.getString("image");
+        JSONObject woo = new JSONObject(json);
+        return woo.getString("image");
     }
 
     public String parseDog(String json)
     {
-        JSONObject o = new JSONObject(json);
-        return o.getString("message");
+        JSONObject woo = new JSONObject(json);
+        return woo.getString("message");
     }
 
     public String parseCat(String json)
     {
-        JSONArray o = new JSONArray(json);
-        JSONObject wo = o.getJSONObject(0);
-        return wo.getString("url");
+        JSONArray woo = new JSONArray(json);
+        JSONObject woo2 = woo.getJSONObject(0);
+        return woo2.getString("url");
     }
+
+
 }
