@@ -94,7 +94,7 @@ public class GUI implements ActionListener
             {
                 URL imageURL = new URL(client.parseCat(client.makeRequest(client.CATURL)));
                 BufferedImage image = ImageIO.read(imageURL);
-                JFrame woo = new JFrame();
+                JFrame woo = new JFrame("Cat");
                 int x = (int) (Math.random() * 1300) + 200;
                 int y = (int) (Math.random() * 500) + 100;
                 woo.setLocation(x, y);
@@ -122,7 +122,7 @@ public class GUI implements ActionListener
             {
                 URL imageURL = new URL(client.parseDog(client.makeRequest(client.DOGURL)));
                 BufferedImage image = ImageIO.read(imageURL);
-                JFrame woo = new JFrame();
+                JFrame woo = new JFrame("Dog");
                 int x = (int) (Math.random() * 1300) + 200;
                 int y = (int) (Math.random() * 500) + 100;
                 woo.setLocation(x, y);
@@ -148,7 +148,7 @@ public class GUI implements ActionListener
             {
                 URL imageURL = new URL(client.parseDuck(client.makeRequest(client.DUCKURL)));
                 BufferedImage image = ImageIO.read(imageURL);
-                JFrame woo = new JFrame();
+                JFrame woo = new JFrame("Duck");
                 int x = (int) (Math.random() * 1300) + 200;
                 int y = (int) (Math.random() * 500) + 100;
                 woo.setLocation(x, y);
@@ -174,7 +174,7 @@ public class GUI implements ActionListener
             {
                 URL imageURL = new URL(client.parseFox(client.makeRequest(client.FOXURL)));
                 BufferedImage image = ImageIO.read(imageURL);
-                JFrame woo = new JFrame();
+                JFrame woo = new JFrame("Fox");
                 int x = (int) (Math.random() * 1300) + 200;
                 int y = (int) (Math.random() * 500) + 100;
                 woo.setLocation(x, y);
