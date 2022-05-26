@@ -39,6 +39,8 @@ public class GUI implements ActionListener
     private void setupGui()
     {
         //Creating a Frame
+        frame.setLocation(800, 40);
+        frame.setAlwaysOnTop(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // ends program when you hit the X
 
         // Creating an image from a jpg file stored in the src directory
@@ -93,6 +95,9 @@ public class GUI implements ActionListener
                 URL imageURL = new URL(client.parseCat(client.makeRequest(client.CATURL)));
                 BufferedImage image = ImageIO.read(imageURL);
                 JFrame woo = new JFrame();
+                int x = (int) (Math.random() * 1300) + 200;
+                int y = (int) (Math.random() * 500) + 100;
+                woo.setLocation(x, y);
                 JLabel animalPic =new JLabel(new ImageIcon(image));
                 woo.setForeground(new Color(0, 0, 0));
                 woo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -118,6 +123,9 @@ public class GUI implements ActionListener
                 URL imageURL = new URL(client.parseDog(client.makeRequest(client.DOGURL)));
                 BufferedImage image = ImageIO.read(imageURL);
                 JFrame woo = new JFrame();
+                int x = (int) (Math.random() * 1300) + 200;
+                int y = (int) (Math.random() * 500) + 100;
+                woo.setLocation(x, y);
                 JLabel animalPic =new JLabel(new ImageIcon(image));
                 woo.setForeground(new Color(0, 0, 0));
                 woo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -141,6 +149,9 @@ public class GUI implements ActionListener
                 URL imageURL = new URL(client.parseDuck(client.makeRequest(client.DUCKURL)));
                 BufferedImage image = ImageIO.read(imageURL);
                 JFrame woo = new JFrame();
+                int x = (int) (Math.random() * 1300) + 200;
+                int y = (int) (Math.random() * 500) + 100;
+                woo.setLocation(x, y);
                 JLabel animalPic =new JLabel(new ImageIcon(image));
                 woo.setForeground(new Color(0, 0, 0));
                 woo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -164,6 +175,9 @@ public class GUI implements ActionListener
                 URL imageURL = new URL(client.parseFox(client.makeRequest(client.FOXURL)));
                 BufferedImage image = ImageIO.read(imageURL);
                 JFrame woo = new JFrame();
+                int x = (int) (Math.random() * 1300) + 200;
+                int y = (int) (Math.random() * 500) + 100;
+                woo.setLocation(x, y);
                 JLabel animalPic =new JLabel(new ImageIcon(image));
                 woo.setForeground(new Color(0, 0, 0));
                 woo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
